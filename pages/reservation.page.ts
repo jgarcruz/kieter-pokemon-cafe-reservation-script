@@ -64,7 +64,7 @@ export class ReservationPage {
         while (!isSeatAvailable) {
             await this.selectGuestNumber(2);
             await this.page.waitForTimeout(1000);
-            await this.selectDate(2025, 11, 9);
+            await this.selectDate(2025, 12, 9);
             await this.page.waitForTimeout(1000);
             // 空席 (kuseki) means empty seat in japanese
             isSeatAvailable = await this.availableSeat.isVisible({timeout: 1000});
