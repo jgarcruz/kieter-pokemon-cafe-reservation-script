@@ -13,6 +13,6 @@ export class EmailPermissionPage {
     async clickMakeReservation() {
         await expect(this.goToReservationPageButton).toBeVisible();
         await this.goToReservationPageButton.click();
-        await this.page.waitForURL('https://reserve.pokemon-cafe.jp/reserve/step1', { timeout: 5000 });
+        await this.page.waitForURL('https://osaka.pokemon-cafe.jp/reserve/step1', { timeout: 5000 });
     }
 }

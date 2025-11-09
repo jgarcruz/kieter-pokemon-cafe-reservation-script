@@ -17,6 +17,6 @@ export class TermsPage {
         await expect(this.agreeToTermsCheckbox).toBeVisible();
         await this.agreeToTermsCheckbox.check();
         await this.goToReservationPageButton.click();
-        await this.page.waitForURL('https://reserve.pokemon-cafe.jp/reserve/auth_confirm', { timeout: 5000 });
+        await this.page.waitForURL('https://osaka.pokemon-cafe.jp/reserve/auth_confirm', { timeout: 5000 });
     }
 }

@@ -51,7 +51,7 @@ export class ReservationPage {
         }, date);
         await this.nextStepButton.click();
         await expect(this.page.getByText("Sorry. There are no available seats can be found on your requested time and date.")).not.toBeVisible();
-        await this.page.waitForURL('https://reserve.pokemon-cafe.jp/reserve/step2', { timeout: 5000 });
+        await this.page.waitForURL('https://osaka.pokemon-cafe.jp/reserve/step2', { timeout: 5000 });
         await this.page.waitForSelector('#time_table');
     }
 
@@ -64,7 +64,7 @@ export class ReservationPage {
         while (!isSeatAvailable) {
             await this.selectGuestNumber(2);
             await this.page.waitForTimeout(1000);
-            await this.selectDate(2024, 9, 2);
+            await this.selectDate(2025, 11, 9);
             await this.page.waitForTimeout(1000);
             // 空席 (kuseki) means empty seat in japanese
             isSeatAvailable = await this.availableSeat.isVisible({timeout: 1000});
@@ -72,7 +72,7 @@ export class ReservationPage {
             // await this.availableSeat.click();
             if (!isSeatAvailable) {
                 await this.backToPreviousPageButton.click();
-                await this.page.waitForURL('https://reserve.pokemon-cafe.jp/reserve/step1', { timeout: 5000 });
+                await this.page.waitForURL('https://osaka.pokemon-cafe.jp/reserve/step1', { timeout: 5000 });
             }
         }
         await this.page.pause();
